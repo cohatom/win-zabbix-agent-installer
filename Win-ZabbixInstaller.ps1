@@ -36,11 +36,11 @@ try
 {
 
 if ($systemArchitecture -eq "64-bit") {
-    $url = "https://www.zabbix.com/downloads/5.2.0/zabbix_agent2-5.2.0-windows-amd64-openssl.msi"
+    $url = " https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.2/zabbix_agent2-5.2.2-windows-amd64-openssl.msi"
     $output = "$PSScriptRoot\zabbix_agent2-5.2.0-windows-amd64-openssl.msi"
     }
 else {
-    $url = "https://www.zabbix.com/downloads/5.2.0/zabbix_agent2-5.2.0-windows-i386-openssl.msi"
+    $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.2/zabbix_agent2-5.2.2-windows-i386-openssl.msi"
     $output = "$PSScriptRoot\zabbix_agent2-5.2.0-windows-i386-openssl.msi"
 }
 
