@@ -28,14 +28,14 @@ if ($null -ne $force) {
 }
 
 $systemArchitecture = (get-ciminstance CIM_OperatingSystem).OSArchitecture
-Write-Host "Sistem je " -NoNewline
+Write-Host "System architecture is " -NoNewline
 Write-host -BackgroundColor Green -ForegroundColor White $systemArchitecture
 
 $file = "$PSScriptRoot\ZabbixAgentInstaller.log"
 try 
 {
 
-if ($systemArchitecture -eq "64-bit") {
+if ($systemArchitecture -eq "64-bit ") {
     $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.2/zabbix_agent2-5.2.2-windows-amd64-openssl.msi"
     $output = "$PSScriptRoot\zabbix_agent2-5.2.0-windows-amd64-openssl.msi"
     }
@@ -59,16 +59,16 @@ $hostname = (Hostname).ToString().ToLower()
 Write-Host "Server hostname is " $hostname
 
 
-$proxyAddress = Read-Host -Prompt 'Vnesi IP naslov lokalnega Zabbix Proxy strežnika'
-Write-Host -BackgroundColor Green "Naslov lokalnega Zabbix Proxy strežnika je" $proxyAddress
+$proxyAddress = Read-Host -Prompt 'Zabbix Proxy server IP address:'
+Write-Host -BackgroundColor Green "Zabbix Proxy server address is: " $proxyAddress
 if ((Test-Connection $proxyAddress -Quiet -Count 2 -Delay 2) -eq $true -or $force) {
-    Write-Host "Zaganjam namestitev..."
+    Write-Host "Running install..."
     Start-Process msiexec.exe -Wait -ArgumentList "/i $output /l*v log.txt LOGTYPE=file ENABLEREMOTECOMMANDS=1 SERVER=$proxyAddress ENABLEPATH=1 HOSTNAME=$hostname /qn"
-    Write-Host -BackgroundColor Green -ForegroundColor White "Namestitev uspešna"
+    Write-Host -BackgroundColor Green -ForegroundColor White "Installation successfull."
     }
 else
     {
-    Write-Host -BackgroundColor Red -ForegroundColor White "Zabbix Proxy nedosegljiv. Ustavljam skripto."
+    Write-Host -BackgroundColor Red -ForegroundColor White "Zabbix Proxy UNREACHABLE. Ending script."
     }
 
 }
