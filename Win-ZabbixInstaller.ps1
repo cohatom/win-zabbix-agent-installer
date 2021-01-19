@@ -35,7 +35,7 @@ $file = "$PSScriptRoot\ZabbixAgentInstaller.log"
 try 
 {
 
-if ($systemArchitecture -eq "64-bit ") {
+if ($systemArchitecture -eq "64-bit") {
     $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.2/zabbix_agent2-5.2.2-windows-amd64-openssl.msi"
     $output = "$PSScriptRoot\zabbix_agent2-5.2.0-windows-amd64-openssl.msi"
     }
