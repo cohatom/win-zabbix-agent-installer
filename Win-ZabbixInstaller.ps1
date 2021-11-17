@@ -36,12 +36,12 @@ try
 {
 
 if ($systemArchitecture -eq "64-bit") {
-    $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.2/zabbix_agent2-5.2.2-windows-amd64-openssl.msi"
-    $output = "$PSScriptRoot\zabbix_agent2-5.2.0-windows-amd64-openssl.msi"
+    $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.4/5.4.7/zabbix_agent-5.4.7-windows-amd64-openssl.msi"
+    $output = "$PSScriptRoot\zabbix_agent-5.4.7-windows-amd64-openssl.msi"
     }
 else {
-    $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.2/5.2.2/zabbix_agent2-5.2.2-windows-i386-openssl.msi"
-    $output = "$PSScriptRoot\zabbix_agent2-5.2.0-windows-i386-openssl.msi"
+    $url = "https://cdn.zabbix.com/zabbix/binaries/stable/5.4/5.4.7/zabbix_agent-5.4.7-windows-i386-openssl.msi"
+    $output = "$PSScriptRoot\zabbix_agent-5.4.7-windows-i386-openssl.msi"
 }
 
 $start_time = Get-Date
